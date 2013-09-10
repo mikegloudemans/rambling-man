@@ -1,0 +1,76 @@
+Hunger Games Analysis
+Mike Gloudemans
+
+8/18/2013
+
+Algorithm: Ramblin' Man
+
+
+Game Theory Analysis:
+
+My net "payout" is 0 if we both hunt, 1 if I slack and my opponent hunts,
+-3 if I hunt and my opponent slacks, or -2 if we both slack. Thus, no matter what my opponent
+chooses to do, whenever I choose to hunt I can expect a net "payout" that is 1 food lower than
+what I would have gotten if I chose to slack. Furthermore, if I choose to slack there is a
+(slight) additional advantage I am denying my opponent. Although this benefit is less important
+because it only affects one other player in any given contest, it becomes more notable as the 
+number of opponents in the competition increases (if I actually make it that far, of course).
+
+Based on this analysis alone, it initially appears that the best strategy is to slack every time.
+However, if by maintaining my reputation at a high level, I could entice my opponents to hunt
+with me at a higher frequency, it might pay off to increase my reputation to a non-zero level.
+This strategy to raise my reputation would work only if every 3 times I hunt, I can expect that
+AT LEAST one person will hunt against me that would have slacked had I possessed a lower reputation.
+
+Taking only my opponents' results into account, there is no reason why my opponent is better
+off choosing to hunt against me if my reputation is 0.5 as opposed to a flat 0, since my opponent 
+still receives 1 less food in total by hunting than by slacking. However, my opponent also will need to
+consider whether I myself will be better off if he or she hunts against me. The competitive nature of
+this game makes it so that people will need to punish slackers by hunting against them less frequently.
+Otherwise, the biggest slackers would surely win!
+
+Thus, the big question to answer is whether the extra costs I incur from hunting are offset by the increased
+percentage of my opponents who will hunt against me due to my higher reputation. Of course, this is impossible 
+to answer without knowing how the other players behave; thus, it will be necessary to observe the others' 
+behavior for a while in order to figure out just how much it pays off to be a hunter.
+
+
+
+Logic/Strategy:
+
+My algorithm "Ramblin Man" is a dynamic strategy which alternates between hunting against everyone and slacking 
+against everyone (as appropriate) in an attempt to bring my reputation towards an optimal reputation. The algorithm
+will "walk" for a while in the direction of increasing reputation until this is no longer beneficial, and then 
+will reverse directions and walk in the direction of decreasing reputation. The algorithm will continuously
+repeat this process, turning itself around whenever it determines that it's going in the wrong direction.
+
+The rationale behind this strategy is that my reputation is the clearest indicator to other players of
+how I am likely to behave in a certain round. It is the only obvious variable that distinguishes me from
+other players. Thus, the only way that I can truly influence other players' likelihood of choosing to hunt
+against me is by modifying my reputation.
+
+My algorithm attempts to determine the optimal reputation using an economic analysis.
+After every 14 rounds, I compare the marginal costs of maintaining a higher reputation with the
+marginal benefits of convincing more of my opponents to hunt against me. If, by increasing my reputation
+by one percent, I can increase the percentage of opponents that hunt against me by a third of a percent,
+then this is an indicator that it's worthwhile to move my reputation in the positive direction. If not, I'll
+be better off allowing my reputation to decrease. (See Game Theory analysis above.)
+
+Admittedly, since there might be a large amount of randomness in my opponents' behavior, it is inevitable
+that I will sometimes misjudge whether I should increase or decrease my reputation to bring 
+it closer to the optimal reputation. However, since I'll be performing this judgment every 14 rounds,
+as long as I judge correctly on more than 50% of my analyses, I'll eventually approach the optimal
+reputation (assuming that there actually is such a thing is an "optimal" reputation!)
+
+One potential danger that my strategy faces is falling into a local optimum reputation that actually
+is far from the true global optimum. This could potentially be devastating to my performance!
+Unfortunately, I never got around to addressing such a problem, so we'll just have to see how things go.
+
+This algorithm has an advantage in is its dynamic approach. It is possible that there exists one optimal 
+reputation to hold throughout the entire game; however, it seems more likely that the optimal reputation will
+vary as the game progresses. Therefore, my algorithm continuously explores and analyzes the effects of a
+slight increase or a slight decrease in reputation. Hopefully over a very large number of rounds, this will
+allow my algorithm to reach a reputation that is near the optimal reputation at any given time.
+
+
+

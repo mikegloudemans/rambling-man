@@ -1,0 +1,60 @@
+Hunger Games Analysis
+Mike Gloudemans
+
+
+Logic:
+The logic of my algorithm is incredibly simple: slack every time.
+
+
+Game Theory Analysis:
+
+
+Concerning my general strategy:
+
+My net "payout" is 0 if we both hunt, 1 if I slack and my opponent hunts,
+-3 if I hunt and my opponent slacks, or -2 if we both slack. Thus, no matter what my opponent
+chooses to do, whenever I choose hunt I can expect a net "payout" that is 1 food lower than
+what I would have gotten if I chose to slack. Furthermore, if I choose to slack there is a
+(slight) additional advantage I am denying my opponent. Although this benefit is less important
+because it only affects one other player in any given contest, it becomes more notable as the 
+number of opponents in the competition increases (if I actually make it that far, of course).
+
+Based on this analysis alone, it appears that the best strategy is to slack every time.
+However, if by maintaining my reputation at a high level, I could entice my opponents to hunt
+with me at a higher frequency, it might pay off to increase my reputation to a non-zero level.
+This strategy to raise my reputation would work only if every 3 times I hunt, I can that guarantee
+AT LEAST one person will hunt against me that would have slacked had I possessed a lower reputation.
+
+Taking only the game theory analysis into account, there is no reason why my opponent is better
+off choosing to hunt against me if my reputation is 0.5 as opposed to a flat 0, since my opponent 
+still receives 1 less food in total by hunting than by slacking. Of course, it's possible that a
+sense of fairness might discourage people from hunting against me if they see that my reputation
+is low.
+
+Because of this, I've concluded that the marginal benefits of hunting simply aren't great enough
+to make it worth the additional 1 food that I lose every time I choose to hunt. This is a risky
+assumption to make, as it's quite possible that my opponent with punish me severely for my 0
+reputation. However, if my opponents behave in a less predictable manner, this strategy might
+actually do quite well by preventing me from unnecessarily spending food on hunting.
+
+
+
+Concerning (lack of) cooperation for the good of the group:
+
+A more cooperative approach might attempt to do my "fair share" of hunting so that the
+group can receive food bonuses in the long term. However, my goal was simply to outlast
+the other players rather than to survive for the entire competition, so from this perspective
+I don't receive any utility from extra 2 pieces of food if every other player receives the same
+bonus.
+
+I realize that this strategy could backfire if other players decide to punish me for my
+non-cooperativity.
+
+Admittedly, my algorithm would be far better if I at least included a backup plan for dealing with
+the case in which other players decide to punish me for being a slacker. Such an algorithm might
+hunt for a little while every so often to raise my reputation to a non-zero level. However, in true
+slacker spirit, I unfortunately never got around to planning such an algorithm. Actually, I did give 
+some thought into algorithms that might attempt to figure out the other players' hunting patterns, 
+but ultimately I decided that most of my ideas would involve making too many assumptions about the other
+players' strategies prior to starting the game, and because of this I opted for my slacker strategy,
+which seems logically sound, although unfortunately also a lot less interesting!
