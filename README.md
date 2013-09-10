@@ -8,7 +8,7 @@ for the entire competition, which meant avoiding hitting 0 food, and (2) to have
 stockpile of food at the end of the competition
 
 Out of over 300 participants, 50 of whom "survived" for the duration of the contest, mine finished
-in 16th place! I'm pretty excited about this result because my algorithm wasn't even super complex.
+in 16th place! I'm pretty excited about this result because my algorithm was fairly simple.
 To learn about the algorithm itself and the reasoning behind it, see the file "Logic_Analysis.txt".
 
 For more information on the general setup of the Hunger Games contest, check out
